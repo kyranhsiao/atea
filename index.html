@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper3 Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="paper-title">Paper3 Title Goes Here, and here's a subtitle</div>
+        <div class="authors">Yanan Li, Qiyang Xiao, YanZhen Ren</div>
+        <div class="affiliations">School of Cyber Science and Engineering, Wuhan University, Wuhan, China</div>
+    </header>
+
+    <div class="abstract">
+        <div class="abstract-title">Abstract</div>
+        <div class="abstract-content">
+            We present AERO, a audio super-resolution model that processes speech and music signals in the spectral domain. AERO is based on an encoder-decoder architecture with U-Net like skip connections. We optimize the model using both time and frequency domain loss functions. Specifically, we consider a set of reconstruction losses together with perceptual ones in the form of adversarial and feature discriminator loss functions. To better handle phase information the proposed method operates over the complex-valued spectrogram using two separate channels. Unlike prior work which mainly considers low and high frequency concatenation for audio super-resolution, the proposed method directly predicts the full frequency range. We demonstrate high performance across a wide range of sample rates considering both speech and music. AERO outperforms the evaluated baselines considering Log-Spectral Distance, ViSQOL, and the subjective MUSHRA test.
+        </div>
+    </div>
+
+    <div class="samples">
+        <div class="samples-title">
+            Audio samples using matrixes of different dimensions (sampling rate is 16kHz)
+        </div>
+        <div class="samples-subtitle">
+            Real refers to the original audio, Deg refers to the audio dotted by M, Deg Inverse refers to the audio, Sub refers to the difference between Real and Deg, and Fake refers to the reconstructed audio.
+        </div>
+    
+        <!-- 2x1矩阵 -->
+        <div class="sample-group">
+            <div class="sample-title">Matrix Dimension: 2x1</div>
+            <div class="sample-item">
+                <div class="audio-content">
+                    <h3>Real</h3>
+                    <img src="assets/1/spec.png" alt="Real Spectrogram">
+                    <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg</h3>
+                    <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                    <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg Inverse</h3>
+                    <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                    <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Sub</h3>
+                    <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                    <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Fake</h3>
+                    <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                    <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4x3矩阵 -->
+        <div class="sample-group">
+            <div class="sample-title">Matrix Dimension: 4x3</div>
+            <div class="sample-item">
+                <div class="audio-content">
+                    <h3>Real</h3>
+                    <img src="assets/1/spec.png" alt="Real Spectrogram">
+                    <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg</h3>
+                    <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                    <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg Inverse</h3>
+                    <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                    <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Sub</h3>
+                    <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                    <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Fake</h3>
+                    <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                    <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8x7矩阵 -->
+        <div class="sample-group">
+            <div class="sample-title">Matrix Dimension: 8x7</div>
+            <div class="sample-item">
+                <div class="audio-content">
+                    <h3>Real</h3>
+                    <img src="assets/1/spec.png" alt="Real Spectrogram">
+                    <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg</h3>
+                    <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                    <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg Inverse</h3>
+                    <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                    <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Sub</h3>
+                    <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                    <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Fake</h3>
+                    <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                    <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                </div>
+            </div>
+        </div>
+
+        <!-- 16x15矩阵 -->
+        <div class="sample-group">
+            <div class="sample-title">Matrix Dimension: 16x15</div>
+            <div class="sample-item">
+                <div class="audio-content">
+                    <h3>Real</h3>
+                    <img src="assets/1/spec.png" alt="Real Spectrogram">
+                    <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg</h3>
+                    <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                    <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg Inverse</h3>
+                    <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                    <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Sub</h3>
+                    <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                    <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Fake</h3>
+                    <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                    <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                </div>
+            </div>
+        </div>
+
+        <!-- 32x31矩阵 -->
+        <div class="sample-group">
+            <div class="sample-title">Matrix Dimension: 32x31</div>
+            <div class="message-range">
+                <div class="message-range-title">Message Range: 14-16</div>
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-range">
+                <div class="message-range-title">Message Range: 14-18</div>
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-range">
+                <div class="message-range-title">Message Range: 20-24</div>
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-range">
+                <div class="message-range-title">Message Range: 20-25</div>
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-range">
+                <div class="message-range-title">Message Range: 20-29 <strong>(The first line is speech audio, the second line is music audio)</strong></div>
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-range">
+                <div class="message-range-title">Message Range: 25-29</div>
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="message-range">
+                <div class="message-range-title">Message Range: 25-30</div>
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="message-range">
+                <div class="message-range-title">Message Range: 25-31</div>
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="message-range">
+                <div class="message-range-title">Message Range: 25-32</div>
+                <div class="sample-item">
+                    <div class="audio-content">
+                        <h3>Real</h3>
+                        <img src="assets/1/spec.png" alt="Real Spectrogram">
+                        <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg</h3>
+                        <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                        <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Deg Inverse</h3>
+                        <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                        <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Sub</h3>
+                        <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                        <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                    </div>
+                    <div class="audio-content">
+                        <h3>Fake</h3>
+                        <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                        <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 64x63矩阵 -->
+        <div class="sample-group">
+            <div class="sample-title">Matrix Dimension: 64x63</div>
+            <div class="sample-item">
+                <div class="audio-content">
+                    <h3>Real</h3>
+                    <img src="assets/1/spec.png" alt="Real Spectrogram">
+                    <audio controls> <source src="assets/1/real.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg</h3>
+                    <img src="assets/1/spec.png" alt="Deg Spectrogram">
+                    <audio controls> <source src="assets/1/deg.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Deg Inverse</h3>
+                    <img src="assets/1/spec.png" alt="Deg Inverse Spectrogram">
+                    <audio controls> <source src="assets/1/inv.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Sub</h3>
+                    <img src="assets/1/spec.png" alt="Sub Spectrogram">
+                    <audio controls> <source src="assets/1/sub.wav" type="audio/mpeg"> </audio>
+                </div>
+                <div class="audio-content">
+                    <h3>Fake</h3>
+                    <img src="assets/1/spec.png" alt="Fake Spectrogram">
+                    <audio controls> <source src="assets/1/fake.wav" type="audio/mpeg"> </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
