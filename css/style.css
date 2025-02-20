@@ -67,6 +67,11 @@ header .affiliations {
     font-weight: bold;
     text-align: center;
 }
+.samples-subtitle {
+    font-size: 1.2rem;
+    color: #747d8c;
+}
+
 
 .sample-group {
     background-color: #ecf0f1;
@@ -85,13 +90,16 @@ header .affiliations {
     font-size: 1.2rem;
     font-weight: bold;
     padding-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     border-bottom: 0.1rem solid #000; 
 }
 
-.samples-subtitle {
-    font-size: 1.2rem;
-    color: #747d8c;
+.sample-subtitle{
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
 }
+
+
 
 .audio-content {
     flex-basis: 15%;
